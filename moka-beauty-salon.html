@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Möka Beauty Salón | Centro de Belleza Integral en Tenerife</title>
+    <!-- Google Fonts for Premium Feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-black: #121212;
+            --primary-white: #ffffff;
+            --accent-pink: #f4dada;
+            --accent-gold: #d4af37;
+            --soft-pink: #fdf6f6;
+            --text-dark: #1a1a1a;
+            --text-light: #555555;
+            --border-color: #eee;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--primary-white);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(18, 18, 18, 0.98);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--primary-white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1560750588-73207b1ef5b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--primary-white);
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .logo-wordmark {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: 8px;
+            margin-bottom: 0;
+            text-transform: uppercase;
+        }
+
+        .tagline-script {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-top: -15px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            color: #ddd;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background-color: transparent;
+            color: var(--primary-white);
+            text-decoration: none;
+            border: 1px solid var(--accent-gold);
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-black);
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--primary-black);
+            font-weight: 700;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 1px;
+            background-color: var(--accent-gold);
+        }
+
+        /* Servicios Section */
+        #servicios {
+            background-color: var(--primary-white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            background-color: var(--soft-pink);
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .service-price {
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Galería Section */
+        #galeria {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+            max-width: 100%;
+        }
+
+        #galeria h2 {
+            color: var(--primary-white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background-color: #222;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: all 0.5s ease;
+            filter: grayscale(100%);
+        }
+
+        .gallery-item:hover img {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        /* Sobre Nosotros Section */
+        #sobre-nosotros {
+            background-color: var(--soft-pink);
+            max-width: 100%;
+        }
+
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-container p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            line-height: 2;
+        }
+
+        .highlight {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* Ubicación y Contacto Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item label {
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--primary-black);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
+        }
+
+        .map-box {
+            height: 400px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-black);
+            color: #777;
+            text-align: center;
+            padding: 4rem 2rem;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .credit {
+            color: var(--accent-gold);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .logo-wordmark {
+                font-size: 3.5rem;
+            }
+            .tagline-script {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+            nav a {
+                font-size: 0.7rem;
+                letter-spacing: 1px;
+            }
+            section h2 {
+                font-size: 2rem;
+            }
+            .hero {
+                height: 60vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-wordmark {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            .tagline-script {
+                font-size: 1.5rem;
+            }
+            .hero-description {
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                padding: 1rem;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#sobre-nosotros">Nosotros</a></li>
+            <li><a href="#ubicacion">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="logo-wordmark">MÖKA</h1>
+            <p class="tagline-script">Beauty Salón</p>
+            <p class="hero-description">Centro de Belleza Integral en Tenerife</p>
+            <a href="https://wa.me/34682589566" class="btn" target="_blank">Reservar Cita</a>
+        </div>
+    </header>
+
+    <section id="servicios">
+        <h2>Nuestras Especialidades</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">✦</div>
+                <h3>Uñas</h3>
+                <p>Manicura combinada, extensiones en gel y nail art minimalista.</p>
+                <span class="service-price">Desde 18€</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✦</div>
+                <h3>Pestañas</h3>
+                <p>Extensiones pelo a pelo y lifting para una mirada natural y profunda.</p>
+                <span class="service-price">Desde 35€</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✦</div>
+                <h3>Láser</h3>
+                <p>Depilación láser de última generación, eficaz y sin dolor.</p>
+                <span class="service-price">Desde 25€</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✦</div>
+                <h3>Peluquería</h3>
+                <p>Tratamientos de hidratación, color y cortes tendencia.</p>
+                <span class="service-price">Desde 20€</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✦</div>
+                <h3>Facial</h3>
+                <p>Limpiezas profundas y tratamientos rejuvenecedores.</p>
+                <span class="service-price">Desde 45€</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✦</div>
+                <h3>Corporal</h3>
+                <p>Masajes y maderoterapia para tu bienestar integral.</p>
+                <span class="service-price">Desde 40€</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <h2>Inspiración Möka</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=500&q=60" alt="Nails"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=500&q=60" alt="Beauty"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=500&q=60" alt="Lashes"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=500&q=60" alt="Hair"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=500&q=60" alt="Facial"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519735891097-3b0a6702a836?auto=format&fit=crop&w=500&q=60" alt="Salon"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc4033c8?auto=format&fit=crop&w=500&q=60" alt="Skin"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=500&q=60" alt="Care"></div>
+        </div>
+    </section>
+
+    <section id="sobre-nosotros">
+        <div class="about-container">
+            <h2>Nuestra Esencia</h2>
+            <p>
+                En <span class="highlight">Möka Beauty Salón</span>, entendemos la belleza como una forma de expresión personal. Ubicados en el corazón de Santa Cruz de Tenerife, nos especializamos en ofrecer un cuidado integral bajo un mismo techo.
+            </p>
+            <p>
+                Somos referentes en <span class="highlight">uñas y pestañas</span>, destacando por nuestra precisión técnica y el uso de productos de gama alta. Nuestro equipo de profesionales combina años de experiencia con una formación constante en las últimas tendencias del sector.
+            </p>
+            <p>
+                Un espacio diseñado para que desconectes del mundo y te reconectes contigo misma. Porque en Möka, tú eres nuestra prioridad.
+            </p>
+        </div>
+    </section>
+
+    <section id="ubicacion">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Visítanos</h3>
+                
+                <div class="contact-item">
+                    <label>Dirección</label>
+                    <p>Calle Sargento Provisional, 11<br>38010 Santa Cruz de Tenerife, España</p>
+                </div>
+
+                <div class="contact-item">
+                    <label>Horario de Apertura</label>
+                    <p>Lunes a Viernes: 09:30 – 18:00<br>Sábados: 10:00 – 14:00</p>
+                </div>
+
+                <div class="contact-item">
+                    <label>Contacto Directo</label>
+                    <p>WhatsApp: +34 682 589 566</p>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://instagram.com/mokabeautysalon" target="_blank">Instagram</a>
+                    <a href="https://wa.me/34682589566" target="_blank">WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="map-box" style="padding: 0;">
+                <iframe
+                    src="https://www.google.com/maps?q=Calle+Sargento+Provisional+11+Santa+Cruz+de+Tenerife+38010&output=embed"
+                    width="100%" height="100%" style="border:0;"
+                    allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Möka Beauty Salón</p>
+        <p>Sitio creado por <span class="credit">Emmanuel · Web Developer</span></p>
+    </footer>
+
+</body>
+</html>
